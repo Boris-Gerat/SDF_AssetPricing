@@ -70,7 +70,7 @@ def stock_retrieve(
     tickers: list, start: str, end: str | None = None, returns: bool = False
 ):
     start = start.strip()
-    stock_raw = yf.download(start=start, tickers=tickers)
+    stock_raw = yf.download(start=start, tickers=tickers, interval="1mo")
     stock_close = stock_raw["Close"]
     if returns == True:
         stock_close = stock_close.pct_change()
